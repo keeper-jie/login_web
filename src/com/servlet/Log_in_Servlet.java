@@ -11,24 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.UserDao;
 import com.dao.UserDaoImpl;
 
-public class DengluServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+public class Log_in_Servlet extends HttpServlet {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String name = request.getParameter("name");
 		String pwd = request.getParameter("pwd");
-		
+
 		UserDao ud = new UserDaoImpl();
-		
-		if(ud.login(name, pwd)){
-			request.setAttribute("xiaoxi", "欢迎用户"+name);
+
+		if (ud.login_user(name, pwd)) {
+			request.setAttribute("msg", "欢迎用户" + name);
 			request.getRequestDispatcher("/success.jsp").forward(request, response);
-		}else{
-			response.sendRedirect("index.jsp");
+		} else {
+			response.sendRedirect("fail.jsp");
 		}
 	}
 

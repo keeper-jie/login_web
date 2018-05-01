@@ -14,15 +14,14 @@ import com.dao.UserDaoImpl;
 import com.entity.User;
 
 public class Searchall extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		UserDao ud = new UserDaoImpl();
-		List<User> userAll = ud.getUserAll();
+		List<User> userAll = ud.getEmployeeAll();
 		request.setAttribute("userAll", userAll);
 		request.getRequestDispatcher("/showall.jsp").forward(request, response);
 	}

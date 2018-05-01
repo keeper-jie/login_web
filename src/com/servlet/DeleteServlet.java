@@ -12,24 +12,22 @@ import com.dao.UserDao;
 import com.dao.UserDaoImpl;
 
 public class DeleteServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String id = request.getParameter("id");
 		int userId = Integer.parseInt(id);
-		
+
 		UserDao ud = new UserDaoImpl();
-		
-		if(ud.delete(userId)){
-			//将查询参数放入request中并传入到下一个处理servlet
-			request.setAttribute("xiaoxi", "删除成功");
+
+		if (ud.delete_em(userId)) {
+			request.setAttribute("msg", "删除成功");
 			request.getRequestDispatcher("/Searchall").forward(request, response);
-		}else{
-			response.sendRedirect("index.jsp");
+		} else {
+			response.sendRedirect("fail.jsp");
 		}
 	}
 
