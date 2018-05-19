@@ -14,6 +14,10 @@
 </head>
 
 <body>
+<form action="SearchServlet" method="post">
+<input type="text"  name="name">
+		<input type="submit" value="查找">
+	</form>
 	<h1>${msg}</h1>
 	<table width="600" border="1" cellpadding="0">
 		<tr>

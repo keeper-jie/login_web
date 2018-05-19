@@ -116,5 +116,28 @@ public class UserDaoImpl implements UserDao {
 		DBconn.closeConn();
 		return flag;
 	}
-
+	public List<User> search_em(String name) {
+		List<User> list = new ArrayList<User>();
+		try {
+			DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from employee where name ='" + name + "' ");
+			while (rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setPwd(rs.getString("pwd"));
+				user.setSex(rs.getString("sex"));
+				user.setPosition(rs.getString("position"));
+				user.setSalary(rs.getDouble("salary"));
+				user.setHome(rs.getString("home"));
+				user.setInfo(rs.getString("info"));
+				list.add(user);
+			}
+			DBconn.closeConn();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

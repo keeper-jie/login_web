@@ -40,6 +40,7 @@ INSERT INTO `employee` VALUES ('1', '捷', '123456', '男', 'java软件设计师
 12.在servlet下创建Searchall用来返回数据库中所有员工信息
 13.在servlet下创建DeleteServlet用来删除员工操作
 14.在servlet下创建UpdateServlet操作用来更新员工信息
+	在servlet下创建SeacherServlet操作用来更新员工信息
 15.相关jsp文件有备注（再提交表单之前用js判断为非空在提交）
 16.log_in.jsp是一开始的登录界面
 17.fail.jsp是失败界面

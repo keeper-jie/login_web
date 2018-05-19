@@ -10,55 +10,12 @@
 <title>员工注册界面</title>
 </head>
 <script type="text/javascript">
-	function beforeSubmit(form) {
-		if (form.name.value == '') {
-			alert('用户名不能为空！');
-			form.name.focus();
-			return false;
-		}
-		if (form.pwd.value == '') {
-			alert('密码不能为空！');
-			form.pwd.focus();
-			return false;
-		}
-		if (form.pwd.value.length < 6) {
-			alert('密码至少为6位，请重新输入！');
-			form.pwd.focus();
-			return false;
-		}
-		if (form.pwd.value != form.pwd2.value) {
-			alert('你两次输入的密码不一致，请重新输入！');
-			form.pwd2.focus();
-			return false;
-		}
-		if (form.sex.value == '') {
-			alert('性别不能为空！');
-			form.sex.focus();
-			return false;
-		}
-		if (form.position.value == '') {
-			alert('职位不能为空！');
-			form.position.focus();
-			return false;
-		}
-		if (form.salary.value == '') {
-			alert('薪资不能为空！');
-			form.salary.focus();
-			return false;
-		}
-		if (form.home.value == '') {
-			alert('地址不能为空！');
-			form.home.focus();
-			return false;
-		}
-
-		return true;
-	}
+	
 </script>
 <body>
 	<h2>员工注册(带*号为必填项)</h2>
 	<form action="Register_Employee_Servlet" method="post"
-		onSubmit="return beforeSubmit(this);" style="padding-top:-700px;">
+		onSubmit="return Registered_em(this);" style="padding-top:-700px;">
 		用户名*：<input type="text" name="name" value=""><br> 密 码*：<input
 			type="password" name="pwd" value=""><br> 重复密码*：<input
 			type="password" name="pwd2" value=""><br> 性别*:<input

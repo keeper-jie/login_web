@@ -18,4 +18,5 @@ public interface UserDao {
 
 	public boolean update_em(int id, String name, String pwd, String sex, String position, double salary, String home,
 			String info);
+	public List<User> search_em(String name);
 }

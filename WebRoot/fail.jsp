@@ -10,7 +10,7 @@
 <title>失败界面</title>
 </head>
 <body>
-	<h1>失敗</h1>
+	<h1>失败</h1>
 </body>
 <a href="log_in.jsp">返回登录界面</a>
 </html>
