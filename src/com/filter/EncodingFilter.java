@@ -8,6 +8,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 public class EncodingFilter implements Filter {
 	public EncodingFilter() {
@@ -19,7 +20,14 @@ public class EncodingFilter implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+			throws IOException, ServletException {		
+		HttpServletRequest req = (HttpServletRequest)request;
+		//如果是验证码转发过来的，则不需要过滤
+		if(req.getServletPath().equals("/servlet/GetImgCaptcha")){
+			chain.doFilter(request, response);
+			return ;
+		}	
+		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		chain.doFilter(request, response);

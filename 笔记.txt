@@ -23,7 +23,7 @@ INSERT INTO `user` VALUES ('1', 'jie', '123456', '管理员');
 INSERT INTO `employee` VALUES ('1', '捷', '123456', '男', 'java软件设计师','5000','衡阳', 'javaweb程序员)
 
 2.然后打开MyEclipse新建一个web项目
-3.在webroot下的WEB-INF下的lib中导入mysql的驱动jar包，（导入standard.jar包和jstl.jar包，有可能）
+3.在webroot下的WEB-INF下的lib中导入mysql的驱动jar包，（导入standard.jar包和jstl.jar包，使用JSTL必须使用的jar包）
 4.建立对应的包结构 
 	com.filter   //过滤器 解决中文字符集乱码
 	com.util     //数据库连接工具类
@@ -34,10 +34,10 @@ INSERT INTO `employee` VALUES ('1', '捷', '123456', '男', 'java软件设计师
 6.到web.xml下进行对EncodingFilter相应的配置
 7.在util下新建一个DBconn类用来处理对数据库的连接操作
 8.在entity下新建一个User实体类
-9.在dao下新建一个UserDao接口  以及对应的方法实现类
+9.在dao下新建一个UserDao接口添加需要的类
 10.在servlet下创建Log_in_Servlet用来实现对用户登录的操作
 11.在servlet下创建一个Register_User_Servlet用来实现管理员注册的操作,还有一个Register_Employee_Servlet用来实现注册员工的操作
-12.在servlet下创建Searchall用来返回数据库中所有员工信息
+12.在servlet下创建SearchAll用来返回数据库中所有员工信息
 13.在servlet下创建DeleteServlet用来删除员工操作
 14.在servlet下创建UpdateServlet操作用来更新员工信息
 	在servlet下创建SeacherServlet操作用来更新员工信息
@@ -48,7 +48,7 @@ INSERT INTO `employee` VALUES ('1', '捷', '123456', '男', 'java软件设计师
 19.register_user是管理员注册界面
 20.showall是员工管理界面
 21.success是登录成功界面
-22.web_xml配置sevlet相关信息（Servlet有两种方式创建，一种手工创建。另一种程序自动生成。前者自己创建java类，实现Servlet具体内容，然后需要去WEB_INF下的web.xml去配置servlet  . 而后者则直接由程序替我们配置好了Servlet）
+22.web_xml配置sevlet相关信息（Servlet有两种方式创建，一种手工创建。另一种程序自动生成。前者自己创建java类，实现Servlet具体内容，然后需要去WEB_INF下的web.xml去配置servlet.而后者则直接由程序替我们配置好了Servlet）
 23.form表单中需要注意的是<form action="Log_in_Servlet"  method="post">
 其中action即为要跳转的servlet路径（即在web.xml中配置的servlet-mapping   ：<url-pattern>/Log_in_Servlet</url-pattern>   ，）写  /  后的内容。
 method="post"为传递值得方法类型有两种，第一种get,第二种post。网上介绍这两种的区别有很多，阐述的又是百家争鸣。而我觉得那个方便就用那个，一般使用post传递，可避免乱码。

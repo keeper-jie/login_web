@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.entity.User;
 import com.util.DBconn;
 
@@ -12,7 +11,7 @@ public class UserDaoImpl implements UserDao {
 	/* 分别实现对employee表操作和user表的操作 */
 	/* register */
 	public boolean register_user(User user) {
-		boolean flag = false;
+		boolean flag = false;//用flag返回函数执行结果
 		DBconn.init();
 		int i = DBconn.addUpdDel("insert into user(name,pwd,info) " + "values('" + user.getName() + "','"
 				+ user.getPwd() + "','" + user.getInfo() + "')");
@@ -51,8 +50,10 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return flag;
+		return flag;	
 	}
+		
+	
 
 	/* 获取user表全部内容 */
 	/*

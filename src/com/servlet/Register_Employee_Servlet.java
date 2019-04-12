@@ -12,6 +12,11 @@ import com.dao.UserDaoImpl;
 import com.entity.User;
 
 public class Register_Employee_Servlet extends HttpServlet {
+	/**
+	 * 注册员工
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -37,12 +42,15 @@ public class Register_Employee_Servlet extends HttpServlet {
 		employee.setInfo(info);
 
 		UserDao ud = new UserDaoImpl();
-
+		
 		if (ud.register_em(employee)) {
 			request.setAttribute("username", name);
+			request.setAttribute("msg","注册成功" );
 			request.getRequestDispatcher("/success.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("fail.jsp");
+			request.setAttribute("msg","注册失败" );
+			response.sendRedirect("/register_em.jsp");
 		}
+	
 	}
 }

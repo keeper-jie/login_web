@@ -1,27 +1,95 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<title>管理员注册界面</title>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>注册页面</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="css/component.css" />
 </head>
-<script type="text/javascript" src="verification.js">	
-</script>
 <body>
-	<h2>管理员注册(带*号为必填项)</h2>
-	<form action="Register_User_Servlet" method="post"
-		onSubmit="return Registered_user(this);" style="padding-top:-700px;">
-		用户名*：<input type="text" name="name" value=""><br> 密 码*：<input
-			type="password" name="pwd" value=""><br> 重复密码*：<input
-			type="password" name="pwd2" value=""><br> 备注:<br>
-		<textarea name="info" row="5" cols="30"></textarea>
-		<br> <input type="reset" value="重置"><input type="submit"
-			value="注册">
-	</form>
-	<a href="log_in.jsp">返回登录界面</a>
+	<!-- 输出信息 -->
+	<%
+		String msg = (String) request.getAttribute("msg");
+		if (msg != null) {
+	%>
+	<script type="text/javascript" >
+		alert("<%=msg%>");
+	</script>
+	<%
+		}
+	%>
+	<div class="container demo-1">
+		<div class="content">
+			<div id="large-header" class="large-header">
+				<canvas id="demo-canvas"></canvas>
+				<div class="logo_box">
+					<h3>管理员注册</h3>
+					<form action="Register_User_Servlet" id="login_admin" method="post" >
+					<!-- onsubmit="return checkForm()" -->
+						<div class="input_outer">
+							<span class="u_user"></span> <input name="name" class="text"
+								style="color: #FFFFFF !important" type="text"
+								placeholder="请输入账号">
+						</div>
+						<div class="input_outer">
+							<span class="us_uer"></span> <input class="text" 
+								id='input_pwd'
+								style="color: #FFFFFF !important; position:absolute; z-index:100;"
+								value="" type="password" name='pwd' placeholder="请输入密码">					  
+								<!-- <input type='hidden' name='pwd' id='md5_pwd' /> -->		
+						</div>
+						<div class="input_outer">
+							<input name="info" class="text" style="color: #FFFFFF !important"
+								type="text" placeholder="备注">
+						</div>
+						<div class="input_outer">
+							<input name="verifyCode" class="text"
+								style="color: #FFFFFF !important" type="text" placeholder="验证码">
+						</div>
+						<div >
+							<img alt="" onclick="test();" src="servlet/GetImgCaptcha">
+						</div>
+						
+						<div class="mb2">
+							<a class="act-but submit"
+								onclick="document.getElementById('login_admin').submit()"
+								style="color: #FFFFFF">注册</a>
+						</div>
+					</form>
+					<form id="register_admin" action="log_in.jsp" method="post">
+						<div class="mb2">
+							<a class="act-but submit"
+								onclick="document.getElementById('register_admin').submit()"
+								style="color: #FFFFFF">返回登录界面</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- identifying code -->
+	<script type="text/javascript">
+		function test() {
+			var image = document.getElementsByTagName("img")[0];
+			var myDate = new Date();
+			image.src = "servlet/GetImgCaptcha?time=" + myDate.getTime();
+		}
+		function checkForm() {
+			document.getElementById("md5_pwd").value = hex_md5(""+document.getElementById("input_pwd").value); 
+			// set password
+			window.alert(document.getElementById("md5_pwd").value);
+			return true;
+		}
+	</script>
+	<script src="js/md5.js"></script>
+	<script src="js/TweenLite.min.js"></script>
+	<script src="js/EasePack.min.js"></script>
+	<script src="js/rAF.js"></script>
+	<script src="js/demo-1.js"></script>
 </body>
 </html>

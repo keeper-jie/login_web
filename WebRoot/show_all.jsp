@@ -9,16 +9,26 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="<%=basePath%>">
 <title>员工管理页面</title>
 </head>
 
 <body>
+<%     
+	String msg = (String)request.getAttribute("msg");         
+	if(msg != null) {
+%>
+	<script type="text/javascript" language="javascript">
+		alert("<%=msg%>");                                                                 
+	</script>	
+<%
+	}
+%>
 <form action="SearchServlet" method="post">
 <input type="text"  name="name">
 		<input type="submit" value="查找">
 	</form>
-	<h1>${msg}</h1>
 	<table width="600" border="1" cellpadding="0">
 		<tr>
 			<th>ID</th>
@@ -33,7 +43,7 @@
 		</tr>
 		<c:forEach var="U" items="${userAll}">
 			<form action="UpdateServlet" method="post">
-				<tr>
+			<tr>
 					<td><input type="text" value="${U.id}" name="id"></td>
 					<td><input type="text" value="${U.name}" name="name"></td>
 					<td><input type="text" value="${U.pwd}" name="pwd"></td>

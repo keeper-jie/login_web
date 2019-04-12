@@ -1,38 +1,101 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<title>员工注册界面</title>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>员工注册页面</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="css/component.css" />
 </head>
-<script type="text/javascript">
-	
-</script>
 <body>
-	<h2>员工注册(带*号为必填项)</h2>
-	<form action="Register_Employee_Servlet" method="post"
-		onSubmit="return Registered_em(this);" style="padding-top:-700px;">
-		用户名*：<input type="text" name="name" value=""><br> 密 码*：<input
-			type="password" name="pwd" value=""><br> 重复密码*：<input
-			type="password" name="pwd2" value=""><br> 性别*:<input
-			type="radio" name="sex" value="男" checked>男 <input
-			type="radio" name="sex" value="女">女 <br> 职位*：<br>
-		<textarea name="position" row="1" cols="10"></textarea>
-		<br> 薪资*：<br>
-		<!-- 薪资只能输入数字 -->
-		<input name="salary" onkeyup="if(isNaN(value))execCommand('undo')"
-			onafterpaste="if(isNaN(value))execCommand('undo')"> <br>
-		地址*:<br>
-		<textarea name="home" row="1" cols="30"></textarea>
-		<br> 备注:<br>
-		<textarea name="info" row="5" cols="30"></textarea>
-		<br> <input type="reset" value="重置"><input type="submit"
-			value="注册">
-	</form>
-	<a href="log_in.jsp">返回登录界面</a>
+	<!-- 输出信息 -->
+	<%
+		String msg = (String) request.getAttribute("msg");
+		if (msg != null) {
+	%>
+	<script type="text/javascript" language="javascript">
+		alert("<%=msg%>");
+	</script>
+	<%
+		}
+	%>
+	<div class="container demo-1">
+		<div class="content">
+			<div id="large-header" class="large-header">
+				<canvas id="demo-canvas"></canvas>
+				<div class="logo_box">
+					<h3>员工注册</h3>
+					
+					<form action="Register_Employee_Servlet" id="login_admin" method="post">
+						<div class="input_outer">
+							<span class="u_user"></span> <input name="name" class="text"
+								style="color: #FFFFFF !important" type="text"
+								placeholder="请输入账号">
+						</div>
+						<div class="input_outer">
+							<span class="us_uer"></span> <input class="text" id='input_pwd'
+								style="color: #FFFFFF !important; position:absolute; z-index:100;"
+								value="" type="password" name='pwd' placeholder="请输入密码">
+							<!--  
+								<input type='hidden' name='pwd' id='sha1_pwd' value=''/>
+								-->
+						</div>
+
+						<div class="input_outer">
+							<input name="position" class="text"
+								style="color: #FFFFFF !important" type="text" placeholder="职位">
+						</div>
+						<div class="input_outer">
+							<input name="salary" class="text"
+								style="color: #FFFFFF !important" type="text" placeholder="薪资">
+						</div>
+						<div class="input_outer">
+							<input name="info" class="text" style="color: #FFFFFF !important"
+								type="text" placeholder="备注">
+						</div>
+							<div>
+								性别*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+									type="radio" name="sex" value="男" checked>男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="sex" value="女">女
+							</div>
+						<input type="hidden" name="login_admin" value="value" />
+						<div class="mb2">
+							<a class="act-but submit"
+								onclick="document.getElementById('login_admin').submit()"
+								style="color: #FFFFFF">注册</a>
+						</div>
+					</form>
+					<form id="register_admin" action="log_in.jsp" method="post">
+						<div class="mb2">
+							<a class="act-but submit"
+								onclick="document.getElementById('register_admin').submit()"
+								style="color: #FFFFFF">返回登录界面</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function test() {
+			var image = document.getElementsByTagName("img")[0];
+			var myDate = new Date();
+			image.src = "servlet/GetImgCaptcha?time=" + myDate.getTime();
+		}
+		function checkForm() {
+			
+		}
+	</script>
+	<script src="js/TweenLite.min.js"></script>
+	<script src="js/EasePack.min.js"></script>
+	<script src="js/rAF.js"></script>
+	<script src="js/demo-1.js"></script>
 </body>
 </html>
+
+
+

@@ -1,11 +1,10 @@
 package com.dao;
 
 import java.util.List;
-
 import com.entity.User;
 
 public interface UserDao {
-	/* 人力资源管理部门需要看到雇员的信息，不需要看到自己管理员账户的信息 */
+	/* 人力资源管理部门需要看到雇员的信息，不需要看到自己账户额信息 */
 	public boolean login_user(String name, String pwd);
 
 	public boolean register_em(User employee);
