@@ -15,7 +15,7 @@ public interface UserDao {
 
 	public boolean delete_em(int id);
 
-	public boolean update_em(int id, String name, String pwd, String sex, String position, double salary, String home,
+	public boolean update_em(int id, String name, String pwd, String sex, String position, double salary, 
 			String info);
 	public List<User> search_em(String name);
 }

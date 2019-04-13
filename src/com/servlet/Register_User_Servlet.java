@@ -45,10 +45,10 @@ public class Register_User_Servlet extends HttpServlet {
         else	{
 		if (ud.register_user(user)) {
 			request.setAttribute("username", name);
-			request.setAttribute("msg","提交成功" );
+			request.setAttribute("msg","添加新员工成功" );
 			request.getRequestDispatcher("/log_in.jsp").forward(request, response);
 		} else {
-			request.setAttribute("msg","提交成功" );
+			request.setAttribute("msg","添加新员工失败" );
 			response.sendRedirect("/register_user.jsp");
 		}
 	}

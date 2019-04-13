@@ -7,7 +7,6 @@ public class User {
 	private String sex;
 	private String position;
 	private double salary;
-	private String home;
 	private String info;
 
 	public int getId() {
@@ -56,14 +55,6 @@ public class User {
 
 	public void setSalary(double salary) {
 		this.salary = salary;
-	}
-
-	public String getHome() {
-		return home;
-	}
-
-	public void setHome(String home) {
-		this.home = home;
 	}
 
 	public String getInfo() {

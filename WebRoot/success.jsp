@@ -29,19 +29,17 @@
 				<div class="logo_box">
 					<h3>欢迎</h3>
 					<form action="SearchAll" id="login_admin" method="post" >	
-						<input type="hidden" name="login_admin" value="value" />
 						<div class="mb2">
 							<a class="act-but submit"
 								onclick="document.getElementById('login_admin').submit()"
 								style="color: #FFFFFF">查看公司人员名单</a>
 						</div>
 					</form>
-					<form id="register_admin" action="log_in.jsp" method="post">
-						<input type="hidden" name="register_admin" value="value" />
+					<form id="return_login" action="log_in.jsp" method="post">
 						<div class="mb2">
 							<a class="act-but submit"
-								onclick="document.getElementById('register_admin').submit()"
-								style="color: #FFFFFF">返回主界面</a>
+								onclick="document.getElementById('return_login').submit()"
+								style="color: #FFFFFF">返回登录界面</a>
 						</div>
 					</form>
 				</div>

@@ -61,10 +61,10 @@
 								style="color: #FFFFFF">注册</a>
 						</div>
 					</form>
-					<form id="register_admin" action="log_in.jsp" method="post">
+					<form id="return_login" action="log_in.jsp" method="post">
 						<div class="mb2">
 							<a class="act-but submit"
-								onclick="document.getElementById('register_admin').submit()"
+								onclick="document.getElementById('return_login').submit()"
 								style="color: #FFFFFF">返回登录界面</a>
 						</div>
 					</form>
@@ -79,14 +79,14 @@
 			var myDate = new Date();
 			image.src = "servlet/GetImgCaptcha?time=" + myDate.getTime();
 		}
-		function checkForm() {
+		/* function checkForm() {
 			document.getElementById("md5_pwd").value = hex_md5(""+document.getElementById("input_pwd").value); 
 			// set password
 			window.alert(document.getElementById("md5_pwd").value);
 			return true;
-		}
+		} */
 	</script>
-	<script src="js/md5.js"></script>
+<!-- 	<script src="js/md5.js"></script> -->
 	<script src="js/TweenLite.min.js"></script>
 	<script src="js/EasePack.min.js"></script>
 	<script src="js/rAF.js"></script>

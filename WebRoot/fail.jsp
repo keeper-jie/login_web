@@ -1,5 +1,5 @@
 <% 
-String username = "";
+/* String username = "";
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie c : cookies) {
@@ -8,7 +8,7 @@ String username = "";
 					break;
 				}
 			}
-		}    
+		}  */   
 	String msg = (String)request.getAttribute("msg");         
 	if(msg != null) {
 %>
@@ -24,12 +24,11 @@ String username = "";
 				<canvas id="demo-canvas"></canvas>
 				<div class="logo_box">
 					<h3>失败界面</h3>
-					<form id="register_admin" action="log_in.jsp" method="post">
-						
+					<form id="return_login" action="log_in.jsp" method="post">
 						<div class="mb2">
 							<a class="act-but submit"
-								onclick="document.getElementById('register_admin').submit()"
-								style="color: #FFFFFF">返回主界面</a>
+								onclick="document.getElementById('return_login').submit()"
+								style="color: #FFFFFF">返回登录界面</a>
 						</div>
 					</form>
 				</div>

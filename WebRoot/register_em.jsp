@@ -30,16 +30,16 @@
 				<div class="logo_box">
 					<h3>员工注册</h3>
 					
-					<form action="Register_Employee_Servlet" id="login_admin" method="post">
+					<form action="Register_Employee_Servlet" id="login_em" method="post">
 						<div class="input_outer">
 							<span class="u_user"></span> <input name="name" class="text"
 								style="color: #FFFFFF !important" type="text"
-								placeholder="请输入账号">
+								placeholder="请输入名字">
 						</div>
 						<div class="input_outer">
 							<span class="us_uer"></span> <input class="text" id='input_pwd'
 								style="color: #FFFFFF !important; position:absolute; z-index:100;"
-								value="" type="password" name='pwd' placeholder="请输入密码">
+								value="" type="password" name="pwd" placeholder="请输入密码">
 							<!--  
 								<input type='hidden' name='pwd' id='sha1_pwd' value=''/>
 								-->
@@ -62,17 +62,17 @@
 									type="radio" name="sex" value="男" checked>男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="radio" name="sex" value="女">女
 							</div>
-						<input type="hidden" name="login_admin" value="value" />
+						<!-- <input type="hidden" name="login_admin" value="value" /> -->
 						<div class="mb2">
 							<a class="act-but submit"
-								onclick="document.getElementById('login_admin').submit()"
+								onclick="document.getElementById('login_em').submit()"
 								style="color: #FFFFFF">注册</a>
 						</div>
 					</form>
-					<form id="register_admin" action="log_in.jsp" method="post">
+					<form id="return_login" action="log_in.jsp" method="post">
 						<div class="mb2">
 							<a class="act-but submit"
-								onclick="document.getElementById('register_admin').submit()"
+								onclick="document.getElementById('return_login').submit()"
 								style="color: #FFFFFF">返回登录界面</a>
 						</div>
 					</form>
@@ -81,14 +81,9 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		function test() {
-			var image = document.getElementsByTagName("img")[0];
-			var myDate = new Date();
-			image.src = "servlet/GetImgCaptcha?time=" + myDate.getTime();
-		}
-		function checkForm() {
+		/* function checkForm() {
 			
-		}
+		} */
 	</script>
 	<script src="js/TweenLite.min.js"></script>
 	<script src="js/EasePack.min.js"></script>

@@ -62,7 +62,6 @@
 								onclick="document.getElementById('register_admin').submit()"
 								style="color: #FFFFFF">注册</a>
 						</div>
-
 					</form>
 				</div>
 			</div>
@@ -76,14 +75,14 @@
 			image.src = "servlet/GetImgCaptcha?time=" + myDate.getTime();
 		}
 	
-		function checkForm() {
+		/* function checkForm() {
 			document.getElementById("md5_pwd").value = hex_md5(""+document.getElementById("input_pwd").value); 
 			// set password
 			window.alert(document.getElementById("md5_pwd").value);
 			return true;
-		}
+		} */
 	</script>
-	<script src="js/md5.js"></script>
+<!-- 	<script src="js/md5.js"></script> -->
 	<script src="js/TweenLite.min.js"></script>
 	<script src="js/EasePack.min.js"></script>
 	<script src="js/rAF.js"></script>

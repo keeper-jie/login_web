@@ -37,7 +37,6 @@
 			<th>性别</th>			
 			<th>职位</th>
 			<th>薪资</th>
-			<th>家乡</th>
 			<th>备注</th>
 			<th>操作</th>
 		</tr>
@@ -50,7 +49,6 @@
 					<td><input type="text" value="${U.sex}" name="sex"></td>
 					<td><input type="text" value="${U.position}" name="position"></td>
 					<td><input type="text" value="${U.salary}" name="salary"></td>
-					<td><input type="text" value="${U.home}" name="home"></td>
 					<td><input type="text" value="${U.info}" name="info"></td>
 					<td><a href="DeleteServlet?id=${U.id}">删除</a> <input
 						type="submit" value="修改" /></td>

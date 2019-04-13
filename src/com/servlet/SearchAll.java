@@ -25,7 +25,6 @@ public class SearchAll extends HttpServlet {
 
 		UserDao ud = new UserDaoImpl();
 		List<User> userAll = ud.getEmployeeAll();
-		request.setAttribute("msg","查找成功" );
 		request.setAttribute("userAll", userAll);
 		request.getRequestDispatcher("/show_all.jsp").forward(request, response);
 	}

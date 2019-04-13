@@ -25,10 +25,13 @@ public class UserDaoImpl implements UserDao {
 	public boolean register_em(User employee) {
 		boolean flag = false;
 		DBconn.init();
+		System.out.println("insert into employee(name,pwd,sex,position,salary,info) " + "values('" + employee.getName()
+		+ "','" + employee.getPwd() + "','" + employee.getSex() + "','" + employee.getPosition() + "',"
+		+ employee.getSalary() +  ",'" + employee.getInfo() + "')");
 		int i = DBconn.addUpdDel(
-				"insert into employee(name,pwd,sex,position,salary,home,info) " + "values('" + employee.getName()
+				"insert into employee(name,pwd,sex,position,salary,info) " + "values('" + employee.getName()
 						+ "','" + employee.getPwd() + "','" + employee.getSex() + "','" + employee.getPosition() + "','"
-						+ employee.getSalary() + "','" + employee.getHome() + "','" + employee.getInfo() + "')");
+						+ employee.getSalary() +  "','" + employee.getInfo() + "')");
 		if (i > 0) {
 			flag = true;
 		}
@@ -79,7 +82,6 @@ public class UserDaoImpl implements UserDao {
 				user.setSex(rs.getString("sex"));
 				user.setPosition(rs.getString("position"));
 				user.setSalary(rs.getDouble("salary"));
-				user.setHome(rs.getString("home"));
 				user.setInfo(rs.getString("info"));
 				list.add(user);
 			}
@@ -91,12 +93,12 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
-	public boolean update_em(int id, String name, String pwd, String sex, String position, double salary, String home,
+	public boolean update_em(int id, String name, String pwd, String sex, String position, double salary,
 			String info) {
 		boolean flag = false;
 		DBconn.init();
 		String sql = "update employee set name ='" + name + "' , pwd ='" + pwd + "' , sex ='" + sex + "' , position ='"
-				+ position + "' ,salary ='" + salary + "' ,home ='" + home + "' , info ='" + info + "' where id = "
+				+ position + "' ,salary ='" + salary + "' , info ='" + info + "' where id = "
 				+ id;
 		int i = DBconn.addUpdDel(sql);
 		if (i > 0) {
@@ -130,7 +132,6 @@ public class UserDaoImpl implements UserDao {
 				user.setSex(rs.getString("sex"));
 				user.setPosition(rs.getString("position"));
 				user.setSalary(rs.getDouble("salary"));
-				user.setHome(rs.getString("home"));
 				user.setInfo(rs.getString("info"));
 				list.add(user);
 			}

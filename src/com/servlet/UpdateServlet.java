@@ -30,14 +30,13 @@ public class UpdateServlet extends HttpServlet {
 		String position = request.getParameter("position");
 		String salary_str = request.getParameter("salary");
 		double salary = Double.parseDouble(salary_str);
-		String home = request.getParameter("home");
 		String info = request.getParameter("info");
 
 		//System.out.println("------------------------------------" + userId);
 
 		UserDao ud = new UserDaoImpl();
 
-		if (ud.update_em(userId, name, pwd, sex, position,salary,home, info)) {
+		if (ud.update_em(userId, name, pwd, sex, position,salary, info)) {
 			request.setAttribute("msg", "更新成功");
 			request.getRequestDispatcher("/SearchAll").forward(request, response);
 		} else {

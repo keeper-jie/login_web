@@ -29,7 +29,6 @@ public class Register_Employee_Servlet extends HttpServlet {
 		String position = request.getParameter("position");
 		String salary_str = request.getParameter("salary");
 		double salary = Double.valueOf(salary_str.toString());//将参数转化为double数salary
-		String home = request.getParameter("home");
 		String info = request.getParameter("info");
 
 		User employee = new User();
@@ -38,7 +37,6 @@ public class Register_Employee_Servlet extends HttpServlet {
 		employee.setSex(sex);
 		employee.setPosition(position);
 		employee.setSalary(salary);
-		employee.setHome(home);
 		employee.setInfo(info);
 
 		UserDao ud = new UserDaoImpl();
